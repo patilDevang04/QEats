@@ -1,9 +1,3 @@
-/*
- *
- *  * Copyright (c) Crio.Do 2019. All rights reserved
- *
- */
-
 package com.crio.qeats.controller;
 
 import com.crio.qeats.dto.Restaurant;
@@ -53,25 +47,31 @@ public class RestaurantController {
 
     log.info("getRestaurants called with {}", getRestaurantsRequest);
     GetRestaurantsResponse getRestaurantsResponse;
-    if (getRestaurantsRequest.getLatitude() != null && getRestaurantsRequest.getLongitude() != null
-        && getRestaurantsRequest.getLatitude() >= -90 && getRestaurantsRequest.getLatitude() <= 90
-        && getRestaurantsRequest.getLongitude() >= -180 
-        && getRestaurantsRequest.getLongitude() <= 180) {
+    if (isValidLatitude(getRestaurantsRequest.getLatitude()) && isValidLongitude(getRestaurantsRequest.getLongitude())) {
       getRestaurantsResponse = restaurantService
           .findAllRestaurantsCloseBy(getRestaurantsRequest, LocalTime.now());
       log.info("getRestaurants returned {}", getRestaurantsResponse);
       
       List<Restaurant> restaurants = getRestaurantsResponse.getRestaurants();
-      for (Restaurant r : restaurants) {
-        String s = r.getName().replaceAll("[Â©éí]", "e");
-        r.setName(s);
-      }
+      
       getRestaurantsResponse.setRestaurants(restaurants);
       return ResponseEntity.ok().body(getRestaurantsResponse);
     } else {
       return ResponseEntity.badRequest().body(null);
     }
 
+
+
   }
+
+  private boolean isValidLatitude(Double latitude){
+    return latitude != null && latitude >= -90 && latitude <= 90; 
+  }
+
+  private boolean isValidLongitude(Double longitude){
+    return longitude != null && longitude >= -180 && longitude <= 180; 
+  }
+}
+
 
   
