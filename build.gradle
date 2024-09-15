@@ -1,12 +1,5 @@
 import java.time.Duration
 
-/*
- *
- *  * Copyright (c) Crio.Do 2019. All rights reserved
- *
- */
-
-//////////////////////////////// DO NOT CHANGE THIS FILE //////////////////////////////////
 buildscript {
     repositories {
         maven {
@@ -49,17 +42,6 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
-}
-
-task installGitHooks(type: Copy) {
-    from new File(rootProject.rootDir, "__CRIO__/pre-push")
-    into { new File(rootProject.rootDir, ".git/hooks") }
-    fileMode 0777
-}
-
-checkstyle {
-    toolVersion "7.8.1"
-    configFile file("${rootProject.rootDir}/__CRIO__/checkstyle.xml")
 }
 
 jacoco {
@@ -142,18 +124,6 @@ subprojects {
         timeout = Duration.ofMinutes(15)
     }
 
-    checkstyle {
-        toolVersion "7.8.1"
-        configFile file("${rootProject.projectDir}/__CRIO__/checkstyle.xml")
-    }
-
-    pmd {
-        toolVersion = "6.10.0"
-        sourceSets = [sourceSets.main]
-        ruleSetFiles = files("${rootProject.projectDir}/__CRIO__/ruleset.xml")
-        ignoreFailures = true
-    }
-
     spotbugs {
         toolVersion = "3.1.12"
         sourceSets = [sourceSets.main]
@@ -171,13 +141,6 @@ subprojects {
         reportsDir = file("$buildDir/customJacocoReportDir")
     }
 
-    task installGitHooks(type: Copy) {
-        from new File(rootProject.rootDir, '__CRIO__/pre-push')
-        into { new File(rootProject.rootDir, '.git/hooks') }
-        fileMode 0777
-    }
-
     build.dependsOn installGitHooks
 }
 
-//////////////////////////////// DO NOT CHANGE THIS FILE //////////////////////////////////

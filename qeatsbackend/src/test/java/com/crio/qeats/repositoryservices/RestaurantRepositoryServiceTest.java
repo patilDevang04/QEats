@@ -1,10 +1,4 @@
 
-/*
- *
- *  * Copyright (c) Crio.Do 2019. All rights reserved
- *
- */
-
 package com.crio.qeats.repositoryservices;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -33,9 +27,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import redis.embedded.RedisServer;
 
-// TODO: CRIO_TASK_MODULE_NOSQL
-// Pass all the RestaurantRepositoryService test cases.
-// Make modifications to the tests if necessary.
+
 @SpringBootTest(classes = {QEatsApplication.class})
 @ActiveProfiles("test")
 public class RestaurantRepositoryServiceTest {

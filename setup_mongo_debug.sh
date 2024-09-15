@@ -12,15 +12,7 @@ done < coordinates.txt
 echo "Your coordinates latitude/longitude are: " $lat $lng
 
 cd ~/workspace
-# Either clone or pull latest.
-QEATS_SHARED_RESOURCES="${HOME}/workspace/qeats_shared_resources"
-if [ ! -d $QEATS_SHARED_RESOURCES ]
-then
-    git clone git@gitlab.crio.do:me_qeats_shared/qeats_shared_resources.git $QEATS_SHARED_RESOURCES
-else
-    cd $QEATS_SHARED_RESOURCES
-    git pull
-fi
+
 
 if systemctl status mongodb.service | grep active > /dev/null; then
     echo "MongoDB is running..."

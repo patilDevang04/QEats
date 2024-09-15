@@ -12,21 +12,10 @@ import redis.clients.jedis.JedisPoolConfig;
 @Component
 public class RedisConfiguration {
 
-  // TODO: CRIO_TASK_MODULE_REDIS
-  // The Jedis client for Redis goes through some initialization steps before you can
-  // start using it as a cache.
-  // Objective:
-  // Some methods are empty or partially filled. Make it into a working implementation.
   public static final String redisHost = "localhost";
 
   // Amount of time after which the redis entries should expire.
   public static final int REDIS_ENTRY_EXPIRY_IN_SECONDS = 3600;
-
-  // TIP(MODULE_RABBITMQ): RabbitMQ related configs.
-  public static final String EXCHANGE_NAME = "rabbitmq-exchange";
-  public static final String QUEUE_NAME = "rabbitmq-queue";
-  public static final String ROUTING_KEY = "qeats.postorder";
-
 
   private int redisPort;
   private JedisPool jedisPool;
@@ -40,7 +29,7 @@ public class RedisConfiguration {
       final JedisPoolConfig poolConfig = buildPoolConfig();
       jedisPool = new JedisPool(poolConfig, redisHost, redisPort);
     } catch (Exception e) {
-      // We don't want to do anything for if cache initialization fails.
+      // Don't want to do anything for if cache initialization fails.
       e.printStackTrace();
     }
 
