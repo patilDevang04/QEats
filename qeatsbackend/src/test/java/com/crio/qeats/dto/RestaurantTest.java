@@ -1,9 +1,4 @@
 
-/*
- *
- *  * Copyright (c) Crio.Do 2019. All rights reserved
- *
- */
 
 package com.crio.qeats.dto;
 
@@ -13,7 +8,6 @@ import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
-// TODO: CRIO_TASK_MODULE_SERIALIZATION - Pass tests in RestaurantTest.
 class RestaurantTest {
 
   @Test

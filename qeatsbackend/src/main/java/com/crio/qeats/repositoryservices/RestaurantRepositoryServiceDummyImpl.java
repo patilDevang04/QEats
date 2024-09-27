@@ -1,4 +1,3 @@
-
 package com.crio.qeats.repositoryservices;
 
 import com.crio.qeats.dto.Restaurant;
@@ -16,9 +15,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 
-// CRIO_UNCOMMENT_ONLY_START_MODULE_RESTAURANTSAPI
-// @Service
-// CRIO_UNCOMMENT_ONLY_END_MODULE_RESTAURANTSAPI
 public class RestaurantRepositoryServiceDummyImpl implements RestaurantRepositoryService {
   private static final String FIXTURES = "fixtures/exchanges";
   private ObjectMapper objectMapper = new ObjectMapper();
@@ -31,11 +27,7 @@ public class RestaurantRepositoryServiceDummyImpl implements RestaurantRepositor
     });
   }
 
-  // TODO: CRIO_TASK_MODULE_RESTAURANTSAPI - Use this dummy implementation.
-  // This function returns a list of restaurants in any lat/long of your choice randomly.
-  // It will load some dummy restaurants and change their latitude/longitude near
-  // the lat/long you pass. In the next module, once you start using mongodb, you will not use
-  // it anymore.
+ 
   @Override
   public List<Restaurant> findAllRestaurantsCloseBy(Double latitude, Double longitude,
       LocalTime currentTime, Double servingRadiusInKms) {

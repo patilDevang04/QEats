@@ -73,10 +73,7 @@ public class RestaurantServiceMockitoTestStub {
     String fixture =
         FixtureHelpers.fixture(FIXTURES + "/mocking_list_of_restaurants.json");
     Restaurant[] restaurants = objectMapper.readValue(fixture, Restaurant[].class);
-    // TODO CRIO_TASK_MODULE_MOCKITO
-    //  What to do with this Restaurant[] ? Looks unused?
-    //  Look for the "assert" statements in the tests
-    //  following and find out what to do with the array.
+    
     restaurant1 = restaurants[0];
     restaurant2 = restaurants[1];
     restaurant3 = restaurants[2];
@@ -88,10 +85,7 @@ public class RestaurantServiceMockitoTestStub {
 
   @Test
   public void  testFindNearbyWithin5km() throws IOException {
-    //TODO: CRIO_TASK_MODULE_MOCKITO
-    // Following test case is failing, you have to
-    // debug it, find out whats going wrong and fix it.
-    // Notes - You can create additional mocks, setup the same and try out.
+    
 
     when(restaurantRepositoryServiceMock
             .findAllRestaurantsCloseBy(any(Double.class), any(Double.class),
@@ -138,11 +132,7 @@ public class RestaurantServiceMockitoTestStub {
          .findAllRestaurantsCloseBy(new GetRestaurantsRequest(20.0, 30.2),
           LocalTime.of(5, 0));
 
-    // TODO: CRIO_TASK_MODULE_MOCKITO
-    //  Call restaurantService.findAllRestaurantsCloseBy with appropriate parameters such that
-    //  Both of the mocks created above are called.
-    //  Our assessment will verify whether these mocks are called as per the definition.
-    //  Refer to the assertions below in order to understand the requirements better.
+    
 
 
     assertEquals(2, allRestaurantsCloseByOffPeakHours.getRestaurants().size());

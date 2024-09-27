@@ -1,9 +1,4 @@
 
-/*
- *
- *  * Copyright (c) Crio.Do 2019. All rights reserved
- *
- */
 
 package com.crio.qeats.utils;
 
@@ -19,17 +14,7 @@ public class GeoUtils {
     return distance(srcLatitude, dstLatitude, srcLongitude, dstLongitude, 0, 0);
   }
 
-  /**
-   * THIS IS BORROWED CODE. Calculate distance between two points in latitude and longitude taking
-   * into account height difference. If you are not interested in height difference pass 0.0. Uses
-   * Haversine method as its base.
-   *
-   * <p>lat1, lon1 Start point lat2, lon2 End point el1 Start altitude in meters el2 End altitude
-   * in
-   * meters
-   *
-   * @returns Distance in Kilo Meters
-   */
+  
   private static double distance(
       double lat1, double lat2, double lon1, double lon2, double el1, double el2) {
 
